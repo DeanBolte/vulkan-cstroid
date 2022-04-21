@@ -1,0 +1,7 @@
+# VS Code preferences
+.vscode
+
+# builds
+object
+*.o
+*.exe
