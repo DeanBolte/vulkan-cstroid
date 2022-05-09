@@ -76,6 +76,7 @@ VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& avai
 VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
 void createSwapChain();
 void createImageViews();
+void createGraphicsPipeline();
 
 GLFWwindow* window;
 VkInstance instance;
@@ -126,6 +127,7 @@ void initVulkan() {
     createLogicalDevice();
     createSwapChain();
     createImageViews();
+    createGraphicsPipeline();
 }
 
 void createSurface() {
@@ -514,6 +516,11 @@ void createImageViews() {
     }
 }
 
+
+void createGraphicsPipeline() {
+
+}
+
 void initialise() {
     glfwInit();
     initVulkan();
@@ -542,7 +549,7 @@ void cleanup() {
     for (auto imageView : swapChainImageViews) {
         vkDestroyImageView(device, imageView, nullptr);
     }
-    
+
     vkDestroySwapchainKHR(device, swapChain, nullptr);
 
     vkDestroyDevice(device, nullptr);
